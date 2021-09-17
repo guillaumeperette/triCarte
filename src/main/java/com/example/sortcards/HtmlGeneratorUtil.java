@@ -4,19 +4,17 @@ import com.example.sortcards.model.Card;
 import com.example.sortcards.model.Color;
 import com.example.sortcards.model.Value;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
-public class HtmlGeneratorUtil  {
-    
+public class HtmlGeneratorUtil {
+
     private StringBuilder colorText = new StringBuilder("Ordre aléatoire des couleurs, de la moins forte à la plus forte : ");
     private StringBuilder valueText = new StringBuilder("Ordre aléatoire des valeurs, de la moins forte à la plus forte : ");
     private StringBuilder handText = new StringBuilder("Main de 10 cartes non triée : ");
-    private StringBuilder sortedHandText = new StringBuilder("On trie la main selon les couleurs et les valeurs définies : ");
-    
-    
+    private StringBuilder sortedHandText = new StringBuilder("On trie la main selon les ordres de couleurs et de valeurs définis avant : ");
+
+
     public void buildColorText(List<Integer> colorRandomOrderList) {
 
         String coma = "";
@@ -30,7 +28,7 @@ public class HtmlGeneratorUtil  {
 
     }
 
-    
+
     public void buildValueText(List<Integer> valueOrderRandomList) {
 
         String coma = "";
@@ -43,11 +41,11 @@ public class HtmlGeneratorUtil  {
 
     }
 
-    
+
     public void buildHandText(Set<Card> cardSet) {
 
         String coma = "";
-        for (Card card: cardSet) {
+        for (Card card : cardSet) {
             handText.append(coma);
             handText.append(card.getValue().getName() + " de " + card.getColor().getName());
             coma = ", ";
@@ -55,17 +53,17 @@ public class HtmlGeneratorUtil  {
 
     }
 
-    
+
     public void buildSortedHandText(Set<Card> sortedCardSet) {
         String coma = "";
-        for (Card card: sortedCardSet) {
+        for (Card card : sortedCardSet) {
             sortedHandText.append(coma);
             sortedHandText.append(card.getValue().getName() + " de " + card.getColor().getName());
             coma = ", ";
         }
     }
 
-    
+
     public String buildHtml() {
         return "<p>" + colorText.append("</p>").append("<p>").append(valueText).append("</p>").append("<p>")
                 .append(handText).append("</p>").append("<p>").append(sortedHandText).toString() + "</p><p><a href=\"/\">Retour</a></p>";

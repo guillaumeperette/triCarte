@@ -12,7 +12,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CardSorterServiceTest {
 
@@ -21,30 +22,31 @@ class CardSorterServiceTest {
     Set<Card> hand = new HashSet<>();
 
     @BeforeEach
-    public void init(){
+    public void init() {
         initValueOrder();
-        initColorOrder();;
+        initColorOrder();
+        ;
         initHand();
     }
 
     @Test
     void sortHand() {
         ICardSorterService cardSorterService = new CardSorterService();
-       Set<Card> sortedSet = cardSorterService.sortHand(hand);
-       assertEquals(10, sortedSet.size());
+        Set<Card> sortedSet = cardSorterService.sortHand(hand);
+        assertEquals(10, sortedSet.size());
 
         List<Card> cardList = new ArrayList<>();
         cardList.addAll(sortedSet);
-       assertTrue(cardList.get(0).equals(new Card(Value.JACK,Color.SPADE)));
-       assertTrue(cardList.get(1).equals(new Card(Value.FIVE,Color.SPADE)));
-       assertTrue(cardList.get(2).equals(new Card(Value.AS,Color.HEART)));
-       assertTrue(cardList.get(3).equals(new Card(Value.SIX,Color.HEART)));
-       assertTrue(cardList.get(4).equals(new Card(Value.QUEEN,Color.HEART)));
-       assertTrue(cardList.get(5).equals(new Card(Value.KING,Color.DIAMOND)));
-       assertTrue(cardList.get(6).equals(new Card(Value.AS,Color.DIAMOND)));
-       assertTrue(cardList.get(7).equals(new Card(Value.FIVE,Color.DIAMOND)));
-       assertTrue(cardList.get(8).equals(new Card(Value.EIGHT,Color.CLUB)));
-       assertTrue(cardList.get(9).equals(new Card(Value.SIX,Color.CLUB)));
+        assertTrue(cardList.get(0).equals(new Card(Value.JACK, Color.SPADE)));
+        assertTrue(cardList.get(1).equals(new Card(Value.FIVE, Color.SPADE)));
+        assertTrue(cardList.get(2).equals(new Card(Value.AS, Color.HEART)));
+        assertTrue(cardList.get(3).equals(new Card(Value.SIX, Color.HEART)));
+        assertTrue(cardList.get(4).equals(new Card(Value.QUEEN, Color.HEART)));
+        assertTrue(cardList.get(5).equals(new Card(Value.KING, Color.DIAMOND)));
+        assertTrue(cardList.get(6).equals(new Card(Value.AS, Color.DIAMOND)));
+        assertTrue(cardList.get(7).equals(new Card(Value.FIVE, Color.DIAMOND)));
+        assertTrue(cardList.get(8).equals(new Card(Value.EIGHT, Color.CLUB)));
+        assertTrue(cardList.get(9).equals(new Card(Value.SIX, Color.CLUB)));
 
     }
 
@@ -64,7 +66,7 @@ class CardSorterServiceTest {
         randomValueOrder.add(6);
     }
 
-    private void initColorOrder(){
+    private void initColorOrder() {
         ramdomColorOrder = new ArrayList<>();
         ramdomColorOrder.add(2);
         ramdomColorOrder.add(0);
@@ -72,20 +74,20 @@ class CardSorterServiceTest {
         ramdomColorOrder.add(4);
     }
 
-    private void initHand(){
-        hand.add(initCard(Value.FIVE,Color.DIAMOND));
-        hand.add(initCard(Value.EIGHT,Color.CLUB));
-        hand.add(initCard(Value.QUEEN,Color.HEART));
-        hand.add(initCard(Value.JACK,Color.SPADE));
-        hand.add(initCard(Value.AS,Color.DIAMOND));
-        hand.add(initCard(Value.SIX,Color.HEART));
-        hand.add(initCard(Value.SIX,Color.CLUB));
-        hand.add(initCard(Value.KING,Color.DIAMOND));
-        hand.add(initCard(Value.AS,Color.HEART));
-        hand.add(initCard(Value.FIVE,Color.SPADE));
+    private void initHand() {
+        hand.add(initCard(Value.FIVE, Color.DIAMOND));
+        hand.add(initCard(Value.EIGHT, Color.CLUB));
+        hand.add(initCard(Value.QUEEN, Color.HEART));
+        hand.add(initCard(Value.JACK, Color.SPADE));
+        hand.add(initCard(Value.AS, Color.DIAMOND));
+        hand.add(initCard(Value.SIX, Color.HEART));
+        hand.add(initCard(Value.SIX, Color.CLUB));
+        hand.add(initCard(Value.KING, Color.DIAMOND));
+        hand.add(initCard(Value.AS, Color.HEART));
+        hand.add(initCard(Value.FIVE, Color.SPADE));
     }
 
-    private  Card initCard(Value value, Color color){
+    private Card initCard(Value value, Color color) {
         Card card = new Card(value, color);
         card.setValueOrder(randomValueOrder.indexOf(card.getValue().getIndex()));
         card.setColorOrder((ramdomColorOrder.indexOf(card.getColor().getIndex()) + 1) * 100);
