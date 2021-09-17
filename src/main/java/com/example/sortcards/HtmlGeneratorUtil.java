@@ -68,6 +68,6 @@ public class HtmlGeneratorUtil  {
     
     public String buildHtml() {
         return "<p>" + colorText.append("</p>").append("<p>").append(valueText).append("</p>").append("<p>")
-                .append(handText).append("</p>").append("<p>").append(sortedHandText).toString() + "</p>";
+                .append(handText).append("</p>").append("<p>").append(sortedHandText).toString() + "</p><p><a href=\"/\">Retour</a></p>";
     }
 }

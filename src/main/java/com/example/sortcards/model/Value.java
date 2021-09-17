@@ -1,8 +1,8 @@
 package com.example.sortcards.model;
 
 public enum Value {
-	AS(0, "As"), TWO(1, "Deux"), THREE(2,"Trois"), FOUR(3, "Quatre"), FIVE(4, "Cinq"), SIX(5, "Six"), SEVEN(6, "Sept"), EIGHT(7, "Huit"), NINE(8, "Neuf"), TEN(9, "Dix"), JACK(10, "Valet"), QUEEN(11, "Dame"), KING(
-			12, "Roi");
+	AS(0, "As"), TWO(1, "2"), THREE(2,"3"), FOUR(3, "4"), FIVE(4, "5"), SIX(5, "6"), SEVEN(6, "7"), EIGHT(7, "8"), NINE(8, "9"), TEN(9, "10"), JACK(10, "V"), QUEEN(11, "D"), KING(
+			12, "R");
 
 	private int index;
 	private String name;
